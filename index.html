@@ -1,86 +1,1033 @@
-    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STU Student Hub</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+:root{
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#70798a;
+    --border:#e5e8ef;
+    --primary:#3157d5;
+    --success:#22935b;
+    --danger:#e5484d;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:.3s;
+}
+
+body.dark{
+    --bg:#0d1117;
+    --card:#161b22;
+    --text:#f0f3f6;
+    --muted:#9da7b5;
+    --border:#30363d;
+}
+
+/* HEADER */
+
+header{
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.header{
+    max-width:1200px;
+    margin:auto;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:19px;
+    font-weight:bold;
+}
+
+.logo-icon{
+    width:40px;
+    height:40px;
+    background:var(--primary);
+    color:white;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.icon-btn{
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:var(--card);
+    cursor:pointer;
+    font-size:18px;
+}
+
+.profile{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:var(--primary);
+    color:white;
+    display:grid;
+    place-items:center;
+    font-weight:bold;
+}
+
+/* LAYOUT */
+
+.layout{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    min-height:calc(100vh - 70px);
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:230px;
+    padding:25px 15px;
+    border-right:1px solid var(--border);
+}
+
+.nav-title{
+    color:var(--muted);
+    font-size:11px;
+    font-weight:bold;
+    margin:15px 12px 8px;
+    text-transform:uppercase;
+}
+
+.nav-item{
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:5px;
+    color:var(--muted);
+    cursor:pointer;
+}
+
+.nav-item:hover,
+.nav-item.active{
+    background:#3157d51a;
+    color:var(--primary);
+    font-weight:bold;
+}
+
+/* MAIN */
+
+main{
+    flex:1;
+    padding:30px;
+}
+
+.welcome{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.welcome h1{
+    font-size:28px;
+    margin-bottom:7px;
+}
+
+.welcome p{
+    color:var(--muted);
+}
+
+/* SEARCH */
+
+.search{
+    width:100%;
+    padding:14px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:var(--card);
+    color:var(--text);
+    margin-bottom:20px;
+    outline:none;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:20px;
+}
+
+.stat-top{
+    display:flex;
+    justify-content:space-between;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.stat-number{
+    font-size:28px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+/* CONTENT */
+
+.content-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:22px;
+    margin-bottom:20px;
+}
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.card-header h2{
+    font-size:18px;
+}
+
+.view{
+    color:var(--primary);
+    font-size:13px;
+    cursor:pointer;
+}
+
+/* ASSIGNMENTS */
+
+.assignment{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:14px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.assignment:last-child{
+    border-bottom:none;
+}
+
+.check{
+    width:21px;
+    height:21px;
+    border:2px solid var(--border);
+    border-radius:6px;
+    cursor:pointer;
+    flex-shrink:0;
+}
+
+.assignment-info{
+    flex:1;
+}
+
+.assignment-title{
+    font-weight:bold;
+    font-size:14px;
+}
+
+.assignment-meta{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:4px;
+}
+
+.deadline{
+    font-size:11px;
+    font-weight:bold;
+}
+
+.red{
+    color:var(--danger);
+}
+
+.green{
+    color:var(--success);
+}
+
+/* COURSES */
+
+.course{
+    padding:15px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    margin-bottom:10px;
+}
+
+.course-name{
+    font-weight:bold;
+}
+
+.course-code{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* PROGRESS */
+
+.progress-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+}
+
+.progress{
+    height:9px;
+    background:var(--border);
+    border-radius:20px;
+    overflow:hidden;
+    margin:10px 0 15px;
+}
+
+.progress-bar{
+    width:78%;
+    height:100%;
+    background:var(--primary);
+    border-radius:20px;
+}
+
+/* SCHEDULE */
+
+.schedule{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.schedule:last-child{
+    border-bottom:none;
+}
+
+.time{
+    color:var(--primary);
+    font-weight:bold;
+    width:60px;
+}
+
+.room{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:4px;
+}
+
+/* KOREAN */
+
+.korean{
+    background:linear-gradient(135deg,#3157d5,#6b46c1);
+    color:white;
+    border:none;
+}
+
+.korean p{
+    color:#ffffffcc;
+    margin:10px 0 18px;
+}
+
+.korean-btn{
+    background:white;
+    color:#3157d5;
+    border:none;
+    padding:11px 17px;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* MOBILE NAV */
+
+.mobile-nav{
+    display:none;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .sidebar{
+        display:none;
+    }
+
+    main{
+        padding:20px;
+        padding-bottom:90px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .content-grid{
+        grid-template-columns:1fr;
+    }
+
+    .mobile-nav{
+        display:flex;
+        position:fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        height:65px;
+        background:var(--card);
+        border-top:1px solid var(--border);
+        z-index:200;
+        justify-content:space-around;
+        align-items:center;
+    }
+
+    .mobile-nav div{
+        text-align:center;
+        color:var(--muted);
+        font-size:11px;
+    }
+
+    .mobile-nav span{
+        display:block;
+        font-size:19px;
+        margin-bottom:3px;
+    }
+}
+
+@media(max-width:500px){
+
+    .welcome h1{
+        font-size:22px;
+    }
+
+    .welcome p{
+        font-size:13px;
+    }
+
+    .stats{
+        gap:10px;
+    }
+
+    .stat{
+        padding:15px;
+    }
+
+    .stat-number{
+        font-size:23px;
+    }
+
+    .card{
+        padding:17px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="header-content">
-        <div class="logo">🎓 STU Student Hub</div>
-        <div class="badge">Unofficial Student Project</div>
+
+<div class="header">
+
+    <div class="logo">
+        <div class="logo-icon">🎓</div>
+        STU Student Hub
     </div>
+
+    <div class="header-right">
+
+        <button class="icon-btn" onclick="toggleDark()">
+            🌙
+        </button>
+
+        <div class="profile">
+            DC
+        </div>
+
+    </div>
+
+</div>
+
 </header>
 
-<section class="hero">
-    <div class="hero-card">
-        <h1>Welcome, Student 👋</h1>
-        <p>Your simple digital companion for university life.</p>
+
+<div class="layout">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="nav-title">Main</div>
+
+    <div class="nav-item active">🏠 Dashboard</div>
+    <div class="nav-item">📚 Courses</div>
+    <div class="nav-item">📝 Assignments</div>
+    <div class="nav-item">📅 Timetable</div>
+
+    <div class="nav-title">Student Life</div>
+
+    <div class="nav-item">🇰🇷 Korean Survival</div>
+    <div class="nav-item">🗺️ Campus Guide</div>
+    <div class="nav-item">🛠️ Student Tools</div>
+
+    <div class="nav-title">Account</div>
+
+    <div class="nav-item">👤 Profile</div>
+    <div class="nav-item">⚙️ Settings</div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main>
+
+
+<div class="welcome">
+
+    <div>
+
+        <h1>
+            Good morning, Diwash 👋
+        </h1>
+
+        <p>
+            Here's what's happening with your studies.
+        </p>
+
     </div>
-</section>
 
-<section class="grid">
-
-    <div class="card">
-        <div class="icon">📚</div>
-        <h2>My Courses</h2>
-        <p>Manage your courses and learning information.</p>
+    <div class="profile">
+        DC
     </div>
 
-    <div class="card">
-        <div class="icon">📝</div>
-        <h2>Assignments</h2>
-        <p>Track assignments and upcoming deadlines.</p>
+</div>
+
+
+<input
+    class="search"
+    type="text"
+    placeholder="🔎 Search courses, assignments, tools..."
+>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+    <div class="stat">
+
+        <div class="stat-top">
+            <span>📚 Courses</span>
+            <span>→</span>
+        </div>
+
+        <div class="stat-number">
+            6
+        </div>
+
     </div>
 
-    <div class="card">
-        <div class="icon">📅</div>
-        <h2>Timetable</h2>
-        <p>View your weekly class schedule.</p>
+
+    <div class="stat">
+
+        <div class="stat-top">
+            <span>📝 Assignments</span>
+            <span>→</span>
+        </div>
+
+        <div class="stat-number">
+            3
+        </div>
+
     </div>
 
-    <div class="card">
-        <div class="icon">🇰🇷</div>
-        <h2>Korean Survival</h2>
-        <p>Useful Korean phrases for international students.</p>
+
+    <div class="stat">
+
+        <div class="stat-top">
+            <span>🔥 Study Streak</span>
+            <span>→</span>
+        </div>
+
+        <div class="stat-number">
+            12
+        </div>
+
     </div>
 
-    <div class="card">
-        <div class="icon">🗺️</div>
-        <h2>Campus Guide</h2>
-        <p>Find important places around campus.</p>
+
+    <div class="stat">
+
+        <div class="stat-top">
+            <span>📊 Progress</span>
+            <span>→</span>
+        </div>
+
+        <div class="stat-number">
+            78%
+        </div>
+
     </div>
 
-    <div class="card">
-        <div class="icon">🛠️</div>
-        <h2>Student Tools</h2>
-        <p>Useful tools for everyday student life.</p>
+</div>
+
+
+<div class="content-grid">
+
+
+<div>
+
+<!-- ASSIGNMENTS -->
+
+<div class="card">
+
+    <div class="card-header">
+
+        <h2>
+            📝 Upcoming Assignments
+        </h2>
+
+        <span class="view">
+            View all →
+        </span>
+
     </div>
 
-</section>
-
-<section class="section">
-
-    <h2>⏰ Upcoming Assignments</h2>
 
     <div class="assignment">
-        <span>Python Assignment</span>
-        <span class="danger">Due Soon</span>
+
+        <div class="check"></div>
+
+        <div class="assignment-info">
+
+            <div class="assignment-title">
+                Python Programming
+            </div>
+
+            <div class="assignment-meta">
+                Computer Engineering
+            </div>
+
+        </div>
+
+        <div class="deadline red">
+            Tomorrow
+        </div>
+
     </div>
+
 
     <div class="assignment">
-        <span>Web Development</span>
-        <span class="warning">This Week</span>
+
+        <div class="check"></div>
+
+        <div class="assignment-info">
+
+            <div class="assignment-title">
+                Web Development
+            </div>
+
+            <div class="assignment-meta">
+                HTML / JavaScript
+            </div>
+
+        </div>
+
+        <div class="deadline">
+            Friday
+        </div>
+
     </div>
+
 
     <div class="assignment">
-        <span>Weekly Reflection</span>
-        <span>Thursday</span>
+
+        <div class="check"></div>
+
+        <div class="assignment-info">
+
+            <div class="assignment-title">
+                Weekly Reflection
+            </div>
+
+            <div class="assignment-meta">
+                Student Activity
+            </div>
+
+        </div>
+
+        <div class="deadline green">
+            Submitted
+        </div>
+
     </div>
 
-</section>
+</div>
 
-<footer>
-    STU Student Hub · Unofficial Student Project · Built for learning
-</footer>
+
+<!-- COURSES -->
+
+<div class="card">
+
+    <div class="card-header">
+
+        <h2>
+            📚 My Courses
+        </h2>
+
+        <span class="view">
+            View all →
+        </span>
+
+    </div>
+
+
+    <div class="course">
+
+        <div class="course-name">
+            Computer Programming
+        </div>
+
+        <div class="course-code">
+            CSE • Current Semester
+        </div>
+
+    </div>
+
+
+    <div class="course">
+
+        <div class="course-name">
+            Web Programming
+        </div>
+
+        <div class="course-code">
+            WEB • Current Semester
+        </div>
+
+    </div>
+
+
+    <div class="course">
+
+        <div class="course-name">
+            Computer Engineering
+        </div>
+
+        <div class="course-code">
+            CE • Current Semester
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<div>
+
+<!-- PROGRESS -->
+
+<div class="card">
+
+    <div class="card-header">
+
+        <h2>
+            📊 Study Progress
+        </h2>
+
+    </div>
+
+    <div class="progress-row">
+
+        <span>
+            Semester progress
+        </span>
+
+        <strong>
+            78%
+        </strong>
+
+    </div>
+
+    <div class="progress">
+
+        <div class="progress-bar"></div>
+
+    </div>
+
+    <p style="color:var(--muted);font-size:13px;">
+        Keep going! You're making steady progress.
+    </p>
+
+</div>
+
+
+<!-- SCHEDULE -->
+
+<div class="card">
+
+    <div class="card-header">
+
+        <h2>
+            📅 Today's Schedule
+        </h2>
+
+    </div>
+
+
+    <div class="schedule">
+
+        <div class="time">
+            09:00
+        </div>
+
+        <div>
+
+            <strong>
+                Computer Programming
+            </strong>
+
+            <div class="room">
+                Room 301
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="schedule">
+
+        <div class="time">
+            13:00
+        </div>
+
+        <div>
+
+            <strong>
+                Web Programming
+            </strong>
+
+            <div class="room">
+                Room 204
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="schedule">
+
+        <div class="time">
+            15:00
+        </div>
+
+        <div>
+
+            <strong>
+                Self Study
+            </strong>
+
+            <div class="room">
+                Library
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- KOREAN -->
+
+<div class="card korean">
+
+    <h2>
+        🇰🇷 Korean Survival
+    </h2>
+
+    <p>
+        Learn useful Korean phrases for university,
+        daily life and part-time work.
+    </p>
+
+    <button
+        class="korean-btn"
+        onclick="alert('Korean Survival module coming soon!')">
+
+        Start Learning →
+
+    </button>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+
+<!-- MOBILE NAV -->
+
+<div class="mobile-nav">
+
+    <div>
+        <span>🏠</span>
+        Home
+    </div>
+
+    <div>
+        <span>📚</span>
+        Courses
+    </div>
+
+    <div>
+        <span>📝</span>
+        Tasks
+    </div>
+
+    <div>
+        <span>📅</span>
+        Schedule
+    </div>
+
+    <div>
+        <span>👤</span>
+        Profile
+    </div>
+
+</div>
+
+
+<script>
+
+/* DARK MODE */
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+
+        localStorage.setItem("theme","dark");
+
+    }else{
+
+        localStorage.setItem("theme","light");
+
+    }
+
+}
+
+
+/* REMEMBER DARK MODE */
+
+if(localStorage.getItem("theme") === "dark"){
+
+    document.body.classList.add("dark");
+
+}
+
+
+/* ASSIGNMENT CHECKBOX */
+
+document.querySelectorAll(".check").forEach(function(check){
+
+    check.addEventListener("click",function(){
+
+        this.style.background = "var(--success)";
+        this.style.borderColor = "var(--success)";
+        this.innerHTML = "✓";
+        this.style.color = "white";
+        this.style.display = "grid";
+        this.style.placeItems = "center";
+
+    });
+
+});
+
+
+/* SEARCH */
+
+const search = document.querySelector(".search");
+
+search.addEventListener("input",function(){
+
+    const text = this.value.toLowerCase();
+
+    document.querySelectorAll(".course,.assignment").forEach(function(item){
+
+        if(item.innerText.toLowerCase().includes(text)){
+
+            item.style.display = "";
+
+        }else{
+
+            item.style.display = "none";
+
+        }
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
