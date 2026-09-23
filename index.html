@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>STU Student Hub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+        header {
+            background: #172033;
+            color: white;
+            padding: 22px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .badge {
+            font-size: 12px;
+            background: #ffffff22;
+            padding: 7px 10px;
+            border-radius: 20px;
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 8px 30px #0000000d;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            color: #687386;
+        }
+
+        .grid {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px #0000000b;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .card p {
+            color: #748096;
+            font-size: 14px;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .section h2 {
+            margin-bottom: 15px;
+        }
+
+        .assignment {
+            background: white;
+            padding: 18px;
+            margin-bottom: 10px;
+            border-radius: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .danger {
+            color: #e53935;
+            font-weight: bold;
+        }
+
+        .warning {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: #7b8494;
+            font-size: 13px;
+        }
+
+        @media (min-width: 700px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="logo">🎓 STU Student Hub</div>
+        <div class="badge">Unofficial Student Project</div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-card">
+        <h1>Welcome, Student 👋</h1>
+        <p>Your simple digital companion for university life.</p>
+    </div>
+</section>
+
+<section class="grid">
+
+    <div class="card">
+        <div class="icon">📚</div>
+        <h2>My Courses</h2>
+        <p>Manage your courses and learning information.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📝</div>
+        <h2>Assignments</h2>
+        <p>Track assignments and upcoming deadlines.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">📅</div>
+        <h2>Timetable</h2>
+        <p>View your weekly class schedule.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🇰🇷</div>
+        <h2>Korean Survival</h2>
+        <p>Useful Korean phrases for international students.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🗺️</div>
+        <h2>Campus Guide</h2>
+        <p>Find important places around campus.</p>
+    </div>
+
+    <div class="card">
+        <div class="icon">🛠️</div>
+        <h2>Student Tools</h2>
+        <p>Useful tools for everyday student life.</p>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2>⏰ Upcoming Assignments</h2>
+
+    <div class="assignment">
+        <span>Python Assignment</span>
+        <span class="danger">Due Soon</span>
+    </div>
+
+    <div class="assignment">
+        <span>Web Development</span>
+        <span class="warning">This Week</span>
+    </div>
+
+    <div class="assignment">
+        <span>Weekly Reflection</span>
+        <span>Thursday</span>
+    </div>
+
+</section>
+
+<footer>
+    STU Student Hub · Unofficial Student Project · Built for learning
+</footer>
+
+</body>
+</html>
